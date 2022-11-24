@@ -2810,6 +2810,13 @@ koa@^2.12.0:
     type-is "^1.6.16"
     vary "^1.1.2"
 
+laravel-vue-pagination@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/laravel-vue-pagination/-/laravel-vue-pagination-4.0.0.tgz#4148edf2d3d5dc69c4c30c0c012ec9f2385d76e1"
+  integrity sha512-HmTqIgCxA1rNpfTkfvJmEUmCGJu2o9SA3UPi5hb7Yx2/Pm3cnuCrRH4obEblbXb9uxj6bOytTswVVgumaa4/iw==
+  dependencies:
+    vue "^3.2.41"
+
 lazystream@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/lazystream/-/lazystream-1.0.1.tgz#494c831062f1f9408251ec44db1cba29242a2638"
@@ -4870,7 +4877,7 @@ vue-router@^4.1.6:
   dependencies:
     "@vue/devtools-api" "^6.4.5"
 
-vue@^3.2.45:
+vue@^3.2.41, vue@^3.2.45:
   version "3.2.45"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.2.45.tgz#94a116784447eb7dbd892167784619fef379b3c8"
   integrity sha512-9Nx/Mg2b2xWlXykmCwiTUCWHbWIj53bnkizBxKai1g61f2Xit700A1ljowpTIM11e3uipOeiPcSqnmBg6gyiaA==

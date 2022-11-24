@@ -56,12 +56,29 @@
       </tbody>
     </table>
   </div>
+
+  <TailwindPagination
+      :data="items_data"
+      @pagination-change-page="getResults"
+  />
 </template>
 
 <script setup>
   import {useFetch} from "nuxt/app";
+  import { TailwindPagination } from 'laravel-vue-pagination';
 
-  const response = await useFetch('https://test-shop.estater.biz/api/v1/products')
-  const items = response.data._rawValue.data
+  let items = {};
+  const items_data = ref({});
+
+  const getResults = async (page = 1) => {
+    const response = await useFetch(`https://test-shop.estater.biz/api/v1/products?page=${page}`)
+    items = response.data._rawValue.data
+    items_data.value = response.data._rawValue
+  }
+
+  getResults();
+
+/*  const response = await useFetch('https://test-shop.estater.biz/api/v1/products')
+  const items = response.data._rawValue.data*/
 
 </script>
