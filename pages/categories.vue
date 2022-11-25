@@ -1,4 +1,9 @@
 <template>
+  <div class="mt-6">
+    <h1 class="text-5xl">
+      Категории
+    </h1>
+  </div>
   <div class="px-6 py-3 min-w-600 overflow-hidden overflow-x-auto align-middle sm:rounded-md">
     <table class="min-w-full border divide-y divide-gray-200">
       <thead>
@@ -25,7 +30,7 @@
             {{ item.id }}
           </td>
           <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
-            {{ item.name }}
+            <NuxtLink :to="`/category/${item.slug}`">{{ item.name }}</NuxtLink>
           </td>
           <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
             {{ item.description }}
