@@ -14,5 +14,8 @@
   },
   "dependencies": {
     "laravel-vue-pagination": "^4.0.0"
+  },
+  "overrides": {
+    "esbuild-loader": "2.16.0"
   }
 }
