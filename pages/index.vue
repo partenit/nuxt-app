@@ -65,7 +65,7 @@
 
 <script setup>
   import {useFetch} from "nuxt/app";
-  import { TailwindPagination } from 'laravel-vue-pagination';
+  import {TailwindPagination} from 'laravel-vue-pagination';
 
   let items = {};
   const items_data = ref({});
