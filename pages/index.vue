@@ -41,8 +41,8 @@
             <td class="text-sm leading-5 text-gray-900 whitespace-no-wrap">
               <img src="https://picsum.photos/100" style="width:100px;"/>
             </td>
-            <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
-              <NuxtLink :to="`/product/${item.slug}`">{{ item.name }}</NuxtLink>
+            <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap" style="text-decoration: underline!important;">
+              <NuxtLink :to="`/product/${item.slug}`" >{{ item.name }}</NuxtLink>
             </td>
             <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
               {{ item.description }}
@@ -53,7 +53,7 @@
             <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
               {{ item.code }}
             </td>
-            <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
+            <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap" style="text-decoration: underline!important;">
               <NuxtLink :to="`/category/${item.category.slug}`">{{ item.category.name }}</NuxtLink>
             </td>
           </tr>
