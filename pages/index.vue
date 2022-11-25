@@ -1,4 +1,9 @@
 <template>
+  <div class="mt-6">
+    <h1 class="text-5xl">
+      Главная. Продукты
+    </h1>
+  </div>
   <div class="px-6 py-3 min-w-600 overflow-hidden overflow-x-auto align-middle sm:rounded-md">
     <table class="min-w-full border divide-y divide-gray-200">
       <thead>
@@ -57,24 +62,30 @@
     </table>
   </div>
 
-  <TailwindPagination
-      :data="items_data"
-      @pagination-change-page="getResults"
-  />
+  <template v-for="item_ in pages" :key="item_">
+    <NuxtLink :to="`/?page=${item_}`" :external="true">
+      <button class="m-2 border-2" v-bind:class="{ 'font-medium': item_ == page }">
+        {{ item_ }}
+      </button >
+    </NuxtLink>
+  </template>
+
 </template>
 
 <script setup>
-  import {useFetch} from "nuxt/app";
-  import {TailwindPagination} from 'laravel-vue-pagination';
+  import {useFetch, useRoute} from "nuxt/app"
 
-  let items = {};
-  const items_data = ref({});
+  const route = useRoute()
+  let items = {}
+  const items_data = ref({})
+  const page = route.query.page ?? 1
+  const response = await useFetch(`https://test-shop.estater.biz/api/v1/products?page=${page}`)
+  items = response.data._rawValue.data
+  items_data.value = response.data._rawValue
 
-  const getResults = async (page = 1) => {
-    const response = await useFetch(`https://test-shop.estater.biz/api/v1/products?page=${page}`)
-    items = response.data._rawValue.data
-    items_data.value = response.data._rawValue
+  let pages = []
+  for (let i = 1; i <= items_data.value.last_page; i++) {
+    pages.push(i)
   }
 
-  getResults();
 </script>
