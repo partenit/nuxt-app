@@ -29,7 +29,7 @@
           <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
             {{ item.id }}
           </td>
-          <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
+          <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap" style="text-decoration: underline!important;">
             <NuxtLink :to="`/category/${item.slug}`">{{ item.name }}</NuxtLink>
           </td>
           <td class="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
@@ -43,9 +43,7 @@
 </template>
 
 <script setup>
-  import {useFetch} from "nuxt/app";
-
-  const response = await useFetch('https://test-shop.estater.biz/api/v1/categories')
+  import {useFetch} from "nuxt/app"
+  const response = await useFetch(`https://test-shop.estater.biz/api/v1/categories`)
   const items = response.data._rawValue.data
-
 </script>

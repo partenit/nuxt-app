@@ -74,16 +74,14 @@
 
 <script setup>
   import {useFetch, useRoute} from "nuxt/app"
-
   const route = useRoute()
-  let items = {}
   const items_data = ref({})
   const page = route.query.page ?? 1
   const response = await useFetch(`https://test-shop.estater.biz/api/v1/products?page=${page}`)
-  items = response.data._rawValue.data
+  const items = response.data._rawValue.data
   items_data.value = response.data._rawValue
-
   let pages = []
+
   for (let i = 1; i <= items_data.value.last_page; i++) {
     pages.push(i)
   }
